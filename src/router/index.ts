@@ -13,7 +13,8 @@ const routes = [
     component: DefaultLayout,
     children: [
       { path: 'DiemDung', name: 'diemdung', component: DiemDung },
-      { path: 'NhaXe', name: 'nhaxe', component: () => import('@/views/KhaiBao/NhaXe.vue') }
+      { path: 'NhaXe', name: 'nhaxe', component: () => import('@/views/KhaiBao/NhaXe.vue') },
+      { path: 'TaiKhoan', name: 'taikhoan', component: () => import('@/views/KhaiBao/TaiKhoan.vue') }
     ]
   }
 ]
