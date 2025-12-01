@@ -19,11 +19,6 @@
                     <div class="text-black">{{ scope.row.name }}</div>
                 </template>
             </el-table-column>
-            <el-table-column label="Tên rút gọn" prop="short_name">
-                <template #default="scope">
-                    <div class="text-black">{{ scope.row.short_name }}</div>
-                </template>
-            </el-table-column>
             <el-table-column label="Mã điểm dừng" prop="code">
                 <template #default="scope">
                     <div class="text-black">{{ scope.row.code }}</div>
@@ -58,10 +53,6 @@
 
                 <el-form-item label="Tên điểm dừng" prop="name">
                     <el-input v-model="form.name" />
-                </el-form-item>
-
-                <el-form-item label="Tên rút gọn" prop="short_name">
-                    <el-input v-model="form.short_name" />
                 </el-form-item>
                 <el-form-item label="Mã điểm dừng" prop="code">
                     <el-input v-model="form.code" />
@@ -118,7 +109,6 @@ const form = ref<DTO_RQ_Point>({
     id: undefined,
     name: undefined,
     code: undefined,
-    short_name: undefined,
     address: undefined,
     province_id: undefined,
     province_code: undefined,
@@ -205,7 +195,6 @@ const filterTableData = computed(() =>
         (data) =>
             !search.value ||
             (data.name && data.name.toLowerCase().includes(search.value.toLowerCase())) ||
-            (data.short_name && data.short_name.toLowerCase().includes(search.value.toLowerCase())) ||
             (data.code && data.code.toLowerCase().includes(search.value.toLowerCase()))
     )
 )
@@ -224,13 +213,14 @@ const openCreate = () => {
         id: undefined,
         name: undefined,
         code: undefined,
-        short_name: undefined,
         address: undefined,
         province_id: undefined,
         ward_id: undefined,
         province_code: undefined,
         ward_code: undefined,
     }
+    tmpProvinceCode.value = '';
+    tmpWardCode.value = '';
     
 
     dialogVisible.value = true
@@ -247,7 +237,6 @@ const openEdit = async (index: number, row: GlobalPoint) => {
         id: row.id,
         name: row.name,
         code: row.code,
-        short_name: row.short_name,
         address: row.address,
         province_id: row.province.id,
         province_code: row.province.province_code,
@@ -278,7 +267,6 @@ const submitForm = () => {
                     id: form.value.id!,
                     name: form.value.name!,
                     code: form.value.code!,
-                    short_name: form.value.short_name!,
                     address: form.value.address!,
                     province: listProvince.value.find(p => p.id === form.value.province_id) || { id: form.value.province_id!, name: '', province_code: form.value.province_code! },
                     ward: listWard.value.find(w => w.id === form.value.ward_id) || { id: form.value.ward_id!, name: '', ward_code: form.value.ward_code! },
@@ -297,7 +285,6 @@ const submitForm = () => {
                     id: res.result!.id,
                     name: res.result!.name,
                     code: res.result!.code,
-                    short_name: res.result!.short_name,
                     address: res.result!.address,
                     province: listProvince.value.find(p => p.id === res.result!.province_id) || { id: res.result!.province_id!, name: '', province_code: res.result!.province_code! },
                     ward: listWard.value.find(w => w.id === res.result!.ward_id) || { id: res.result!.ward_id!, name: '', ward_code: res.result!.ward_code! },

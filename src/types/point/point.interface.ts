@@ -2,7 +2,6 @@ export interface DTO_RQ_Point {
     id?: string;
     name?: string;
     code?: string;
-    short_name?: string;
     address?: string;
     province_id?: string;
     province_code?: string;
@@ -13,7 +12,6 @@ export interface GlobalPoint {
     id: string;
     name: string;
     code: string;
-    short_name: string;
     address: string;
     province: {
         id: string;

@@ -62,6 +62,7 @@
                         <el-button :icon="More" circle />
                         <template #dropdown>
                             <el-dropdown-menu>
+                                <el-dropdown-item @click="handleManageRoute(scope.$index, scope.row)">Tuyến</el-dropdown-item>
                                 <el-dropdown-item @click="handleManageAccount(scope.$index, scope.row)">Tài khoản</el-dropdown-item>
                                 <el-dropdown-item @click="handleEdit(scope.$index, scope.row)">
                                     Chỉnh sửa
@@ -260,6 +261,15 @@ const router = useRouter();
 const handleManageAccount = (index: number, row: Company) => {
     router.push({
     name: 'taikhoan',
+    query: {
+      companyId: row.id?.toString() || '',
+      name: row.company_short_name || ''
+    }
+  });
+}
+const handleManageRoute = (index: number, row: Company) => {
+    router.push({
+    name: 'tuyen',
     query: {
       companyId: row.id?.toString() || '',
       name: row.company_short_name || ''

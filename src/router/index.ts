@@ -14,7 +14,8 @@ const routes = [
     children: [
       { path: 'DiemDung', name: 'diemdung', component: DiemDung },
       { path: 'NhaXe', name: 'nhaxe', component: () => import('@/views/KhaiBao/NhaXe.vue') },
-      { path: 'TaiKhoan', name: 'taikhoan', component: () => import('@/views/KhaiBao/TaiKhoan.vue') }
+      { path: 'TaiKhoan', name: 'taikhoan', component: () => import('@/views/KhaiBao/TaiKhoan.vue') },
+      { path: 'Tuyen', name: 'tuyen', component: () => import('@/views/KhaiBao/Tuyen.vue') }
     ]
   }
 ]
