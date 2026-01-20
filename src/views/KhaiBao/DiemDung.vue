@@ -93,7 +93,7 @@ import { companyService } from '@/services/identity-service/company.service'
 import { formatDate } from '@/utils/date'
 import type { DTO_RQ_Point, GlobalPoint } from '@/types/point/point.interface'
 import type { Province } from '@/types/point/province.interface'
-import { pointService } from '@/services/bms-service/point.service'
+import { pointService } from '@/services/resource-service/point.service'
 import type { Ward } from '@/types/point/ward.interface'
 
 const dialogVisible = ref(false)

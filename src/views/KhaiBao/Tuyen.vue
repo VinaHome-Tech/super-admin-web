@@ -101,7 +101,7 @@
     </div>
 </template>
 <script setup lang="ts">
-import { routeService } from '@/services/bms-service/route.service';
+import { routeService } from '@/services/resource-service/route.service';
 import type { DTO_RP_Route, DTO_RQ_Route } from '@/types/route/route.interface';
 import { formatDate } from '@/utils/date';
 import { ElMessage, type FormInstance } from 'element-plus';
